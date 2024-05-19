@@ -1,0 +1,29 @@
+<h1>E-GramSevak</h1> <br><br>
+Full Name: <br>
+<input type="text" [(ngModel)]="registerUser.fullname"> <br>
+Username: <br>
+<input type="text" [(ngModel)]="registerUser.username"> <br>
+Password: <br>
+<input type="text" [(ngModel)]="registerUser.password"> <br>
+Confirm Password: <br>
+<input type="text" placeholder="confirm password"> <br>
+<!-- <input type="text" placeholder="confirm password"><br>
+<select [(ngModel)]="registerUser.confirmPassword">
+    <Option>pune</Option>
+</select><br> -->
+<!-- <input type="text" (blur)="confirmPassword($event)"> <br>
+<p *ngIf="isErrorShow==1" style="color: green;">{{errorMsg}}</p>
+<p *ngIf="isErrorShow==2" style="color: red;">{{errorMsg}}</p> -->
+Mob Number: <br>
+<input type="text" [(ngModel)]="registerUser.mobNum"> <br>
+Village Name: <br>
+<select [(ngModel)]="selectedVillage">
+    <option>--select--</option>
+    <option *ngFor="let Village of allVillageData">
+        {{Village.villageName}}
+    </option>
+</select> <br>
+<button (click)="register()">register</button>
+
+
+

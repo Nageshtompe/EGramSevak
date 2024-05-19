@@ -1,0 +1,17 @@
+<div *ngIf="isLoginSuccess==0">  
+<button (click)="show(1)">LOGIN</button>
+<button (click)="show(2)">REGISTRATION</button><br>
+
+<app-userlogin *ngIf="whatToShow==1"></app-userlogin>
+<app-userregistration *ngIf="whatToShow==2"></app-userregistration>
+</div>
+
+<div *ngIf="isLoginSuccess==1">
+    <app-superadmindashboard></app-superadmindashboard>
+</div>
+<div *ngIf="isLoginSuccess==2">
+    <app-admindashboard></app-admindashboard>
+</div>
+<div *ngIf="isLoginSuccess==3">
+    <app-userdashboard></app-userdashboard>
+</div>

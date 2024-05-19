@@ -1,0 +1,56 @@
+<button (click)="getDataOfUser()" (click)="show(1)">UnverifiedUser</button>
+<button (click)="show(2)">AddVillage</button>
+<button (click)="show(3)" (click)="getVillageData()">AddScheme</button>
+
+
+<table border="1px solid black" *ngIf="whatToShow==1">
+    <tr>
+        <td>SN</td>
+        <td>FullName</td>
+        <td>MobileNumber</td>
+        <td>RegisterationDate</td>
+        <td>action</td>        
+
+    </tr>
+    <tr *ngFor="let user of allUnVerifiedUser;let i=index">
+
+        <td>{{i+1}}</td>
+        <td>{{user.fullname}}</td>
+        <td>{{user.mobNum}}</td>
+        <td>{{user.registrationDate | date:'medium'}}</td>
+        <td>
+            <button>verify</button>
+            <button>reject</button>
+        </td>
+    </tr>
+
+</table>
+
+<div *ngIf="whatToShow==2">
+    village Name : <br>
+    <input type="text" [(ngModel)]="village.villageName"> <br>
+    pincode : <br>
+    <input type="text" [(ngModel)]="village.pincode"><br>
+    <button  (click)="addVillage()">Addvillage</button>
+
+</div>
+
+<div *ngIf="whatToShow==3">
+    Village Name : <br>
+<select [(ngModel)]="scheme.village">
+    <option>--select--</option>
+    <option *ngFor="let data of villageData">
+        {{data.villageName}}
+    </option>
+</select> <br>
+Scheme Short Name: <br>
+<input type="text" placeholder="enter name"  [(ngModel)]="scheme.schemeShortName"> <br>
+Scheme Description : <br>
+<textarea type="text" [(ngModel)]="scheme.schemeDesc"></textarea> <br>
+Scheme Start Date : <br>
+<input type="date" [(ngModel)]="scheme.schemeStartDate"> <br>
+Scheme Exp Date : <br>
+<input type="date" [(ngModel)]="scheme.expDate"> <br> <br>
+<button (click)="addScheme()">submit</button>
+
+</div>
